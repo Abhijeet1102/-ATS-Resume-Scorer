@@ -1,6 +1,6 @@
 # 🎯 ATS Resume Scorer
 
-An AI-powered Applicant Tracking System (ATS) Resume Scorer that evaluates how well a resume matches a job description and provides actionable feedback. Built with **FastAPI** and **Streamlit**, it leverages **spaCy** and **Sentence Transformers** for local NLP/semantic matching, and the **Groq API (Llama 3)** for generating detailed LLM suggestions.
+An AI-powered Applicant Tracking System (ATS) Resume Scorer that evaluates how well a resume matches a job description and provides actionable feedback. Built with **FastAPI** and **Streamlit**, it leverages **spaCy** for local NLP/semantic matching, and the **Groq API (Llama 3)** for generating detailed LLM suggestions. The backend is fully optimized to run in low-memory environments (like Render's 512MB RAM free tier).
 
 ---
 
@@ -9,7 +9,7 @@ An AI-powered Applicant Tracking System (ATS) Resume Scorer that evaluates how w
 1. **Dual Analysis Modes**:
    * **General ATS Score**: Evaluates overall resume formatting, structure, and quality without a job description.
    * **Job Description Comparison**: Conducts semantic matching between the resume and a specific job description.
-2. **Semantic Similarity Matching**: Uses the `all-MiniLM-L6-v2` Sentence Transformer model to calculate a meaning-based match score rather than just simple keyword matching.
+2. **Semantic Similarity Matching**: Uses spaCy's medium English model (`en_core_web_md`) to calculate a meaning-based match score rather than just simple keyword matching.
 3. **Skill Validation**: Cross-references listed skills against projects and work experience to verify credibility.
 4. **Actionable Feedback**: Identifies critical issues (e.g., missing contact info, weak action verbs, lack of metrics) and provides AI-generated suggestions for improvement.
 5. **PDF Report Export**: Allows users to download a beautifully formatted PDF report of their analysis.
@@ -22,7 +22,7 @@ An AI-powered Applicant Tracking System (ATS) Resume Scorer that evaluates how w
 
 * **Frontend**: Streamlit
 * **Backend**: FastAPI (Python)
-* **NLP**: spaCy (`en_core_web_md`), Sentence Transformers (`all-MiniLM-L6-v2`)
+* **NLP**: spaCy (`en_core_web_md`)
 * **LLM**: Groq API (Llama 3)
 * **Auth + Database**: Supabase (Optional; email/password and Google OAuth)
 * **PDF Report Export**: WeasyPrint + Jinja2
