@@ -1,5 +1,4 @@
 import spacy
-from sentence_transformers import SentenceTransformer
 from typing import Dict, List, Optional
 from backend.models.schemas import IssueDetail
 from backend.services.groq_parser import parse_resume, parse_job_description
@@ -11,7 +10,6 @@ from backend.services.ats_scorer import calculate_overall_score, validate_skills
 def analyze_full_resume(
     resume_text: str,
     nlp: spacy.Language,
-    embedder: SentenceTransformer,
     job_description: Optional[str] = None,
 ) -> Dict:
     import logging
@@ -43,7 +41,7 @@ def analyze_full_resume(
         skills=skills,
         projects=projects,
         experience_entries=parsed_resume.get('experience', []),
-        embedder=embedder,
+        nlp=nlp,
     )
 
     jd_comparison_result = None
@@ -61,7 +59,6 @@ def analyze_full_resume(
             resume_skills=skills,
             jd_text=job_description.strip(),
             jd_keywords=jd_keywords,
-            embedder=embedder,
             nlp=nlp,
         )
 
