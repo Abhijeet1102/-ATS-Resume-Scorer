@@ -1,0 +1,41 @@
+# Environments and Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+secrets.toml
+
+# Python virtual environment
+venv/
+.venv/
+env/
+ENV/
+pyvenv.cfg
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDEs and OS files
+.DS_Store
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Logs and databases
+*.log
+*.sqlite
+
+# ML models & datasets
+*.safetensors
+*.pkl
+*.csv
+*.tsv
+.ipynb_checkpoints/
